@@ -15,6 +15,7 @@
 		B60D7D532225EA4D003CC531 /* PostListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D7D522225EA4D003CC531 /* PostListTableViewController.swift */; };
 		B60D7D552225EA86003CC531 /* PostDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D7D542225EA86003CC531 /* PostDetailTableViewController.swift */; };
 		B60D7D572225EABA003CC531 /* AddPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D7D562225EABA003CC531 /* AddPostTableViewController.swift */; };
+		B60D7D5B2225EB57003CC531 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D7D5A2225EB57003CC531 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		B60D7D522225EA4D003CC531 /* PostListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListTableViewController.swift; sourceTree = "<group>"; };
 		B60D7D542225EA86003CC531 /* PostDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailTableViewController.swift; sourceTree = "<group>"; };
 		B60D7D562225EABA003CC531 /* AddPostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostTableViewController.swift; sourceTree = "<group>"; };
+		B60D7D5A2225EB57003CC531 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			children = (
 				B60D7D4C2225E893003CC531 /* Continum.entitlements */,
 				B60D7D3A2225E85A003CC531 /* AppDelegate.swift */,
+				B60D7D5C2225EB5B003CC531 /* Model */,
 				B60D7D512225E8B2003CC531 /* Views */,
 				B60D7D592225EADE003CC531 /* Controller */,
 				B60D7D502225E8A8003CC531 /* Resources */,
@@ -114,6 +117,14 @@
 				B60D7D582225EACF003CC531 /* ViewController */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		B60D7D5C2225EB5B003CC531 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B60D7D5A2225EB57003CC531 /* Post.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +210,7 @@
 				B60D7D532225EA4D003CC531 /* PostListTableViewController.swift in Sources */,
 				B60D7D572225EABA003CC531 /* AddPostTableViewController.swift in Sources */,
 				B60D7D552225EA86003CC531 /* PostDetailTableViewController.swift in Sources */,
+				B60D7D5B2225EB57003CC531 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
