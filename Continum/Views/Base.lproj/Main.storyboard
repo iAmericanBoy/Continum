@@ -78,7 +78,7 @@
                                     <outlet property="commentsLabel" destination="Wny-MP-hG9" id="EWT-tr-EIY"/>
                                     <outlet property="poatImageView" destination="lQ8-kh-le8" id="bg6-Tn-LTe"/>
                                     <outlet property="postCaptionLabel" destination="uXv-CF-LYf" id="tmA-Mz-DyI"/>
-                                    <segue destination="Csq-Xg-cuK" kind="show" id="zay-9l-Zh1"/>
+                                    <segue destination="Csq-Xg-cuK" kind="show" identifier="toDetailVC" id="zay-9l-Zh1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

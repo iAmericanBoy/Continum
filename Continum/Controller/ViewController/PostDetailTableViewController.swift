@@ -9,7 +9,10 @@
 import UIKit
 
 class PostDetailTableViewController: UITableViewController {
-
+    //MARK: - Properties
+    var post: Post?
+    
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
