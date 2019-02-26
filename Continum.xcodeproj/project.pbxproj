@@ -17,6 +17,7 @@
 		B60D7D572225EABA003CC531 /* AddPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D7D562225EABA003CC531 /* AddPostTableViewController.swift */; };
 		B60D7D5B2225EB57003CC531 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D7D5A2225EB57003CC531 /* Post.swift */; };
 		B60D7D5E2225ED54003CC531 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D7D5D2225ED54003CC531 /* Comment.swift */; };
+		B60D7D602225F02A003CC531 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D7D5F2225F02A003CC531 /* PostController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		B60D7D562225EABA003CC531 /* AddPostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostTableViewController.swift; sourceTree = "<group>"; };
 		B60D7D5A2225EB57003CC531 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		B60D7D5D2225ED54003CC531 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		B60D7D5F2225F02A003CC531 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 		B60D7D592225EADE003CC531 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B60D7D612225F02D003CC531 /* ModelController */,
 				B60D7D582225EACF003CC531 /* ViewController */,
 			);
 			path = Controller;
@@ -128,6 +131,14 @@
 				B60D7D5D2225ED54003CC531 /* Comment.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B60D7D612225F02D003CC531 /* ModelController */ = {
+			isa = PBXGroup;
+			children = (
+				B60D7D5F2225F02A003CC531 /* PostController.swift */,
+			);
+			path = ModelController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +224,7 @@
 				B60D7D5E2225ED54003CC531 /* Comment.swift in Sources */,
 				B60D7D532225EA4D003CC531 /* PostListTableViewController.swift in Sources */,
 				B60D7D572225EABA003CC531 /* AddPostTableViewController.swift in Sources */,
+				B60D7D602225F02A003CC531 /* PostController.swift in Sources */,
 				B60D7D552225EA86003CC531 /* PostDetailTableViewController.swift in Sources */,
 				B60D7D5B2225EB57003CC531 /* Post.swift in Sources */,
 			);
