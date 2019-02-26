@@ -12,6 +12,9 @@
 		B60D7D422225E85E003CC531 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B60D7D412225E85E003CC531 /* Assets.xcassets */; };
 		B60D7D452225E85E003CC531 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B60D7D432225E85E003CC531 /* LaunchScreen.storyboard */; };
 		B60D7D4F2225E896003CC531 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60D7D4E2225E896003CC531 /* CloudKit.framework */; };
+		B60D7D532225EA4D003CC531 /* PostListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D7D522225EA4D003CC531 /* PostListTableViewController.swift */; };
+		B60D7D552225EA86003CC531 /* PostDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D7D542225EA86003CC531 /* PostDetailTableViewController.swift */; };
+		B60D7D572225EABA003CC531 /* AddPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D7D562225EABA003CC531 /* AddPostTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		B60D7D462225E85E003CC531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B60D7D4C2225E893003CC531 /* Continum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Continum.entitlements; sourceTree = "<group>"; };
 		B60D7D4E2225E896003CC531 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		B60D7D522225EA4D003CC531 /* PostListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListTableViewController.swift; sourceTree = "<group>"; };
+		B60D7D542225EA86003CC531 /* PostDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailTableViewController.swift; sourceTree = "<group>"; };
+		B60D7D562225EABA003CC531 /* AddPostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,7 @@
 				B60D7D4C2225E893003CC531 /* Continum.entitlements */,
 				B60D7D3A2225E85A003CC531 /* AppDelegate.swift */,
 				B60D7D512225E8B2003CC531 /* Views */,
+				B60D7D592225EADE003CC531 /* Controller */,
 				B60D7D502225E8A8003CC531 /* Resources */,
 			);
 			path = Continum;
@@ -89,6 +96,24 @@
 				B60D7D3E2225E85A003CC531 /* Main.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B60D7D582225EACF003CC531 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B60D7D522225EA4D003CC531 /* PostListTableViewController.swift */,
+				B60D7D542225EA86003CC531 /* PostDetailTableViewController.swift */,
+				B60D7D562225EABA003CC531 /* AddPostTableViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B60D7D592225EADE003CC531 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B60D7D582225EACF003CC531 /* ViewController */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +196,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B60D7D3B2225E85A003CC531 /* AppDelegate.swift in Sources */,
+				B60D7D532225EA4D003CC531 /* PostListTableViewController.swift in Sources */,
+				B60D7D572225EABA003CC531 /* AddPostTableViewController.swift in Sources */,
+				B60D7D552225EA86003CC531 /* PostDetailTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
