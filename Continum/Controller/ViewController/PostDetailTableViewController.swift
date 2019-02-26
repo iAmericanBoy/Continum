@@ -72,6 +72,7 @@ class PostDetailTableViewController: UITableViewController {
                 PostController.shared.addCommentTo(post: post, withText: comment, completion: { comment in
                     
                 })
+                self?.tableView.reloadData()
             }
         }
         commentAlert.addTextField { textField in

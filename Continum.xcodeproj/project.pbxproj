@@ -379,7 +379,7 @@
 				CODE_SIGN_ENTITLEMENTS = Continum/Continum.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J6B8ZX28ZW;
-				INFOPLIST_FILE = Continum/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Continum/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -398,7 +398,7 @@
 				CODE_SIGN_ENTITLEMENTS = Continum/Continum.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J6B8ZX28ZW;
-				INFOPLIST_FILE = Continum/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Continum/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
