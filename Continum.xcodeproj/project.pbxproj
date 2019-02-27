@@ -19,6 +19,7 @@
 		B60D7D5E2225ED54003CC531 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D7D5D2225ED54003CC531 /* Comment.swift */; };
 		B60D7D602225F02A003CC531 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D7D5F2225F02A003CC531 /* PostController.swift */; };
 		B60D7D632225F302003CC531 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D7D622225F302003CC531 /* PostTableViewCell.swift */; };
+		B6FDE9C022273E1B007283A5 /* SearchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FDE9BF22273E1B007283A5 /* SearchableRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		B60D7D5D2225ED54003CC531 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		B60D7D5F2225F02A003CC531 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		B60D7D622225F302003CC531 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		B6FDE9BF22273E1B007283A5 /* SearchableRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableRecord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			children = (
 				B60D7D5A2225EB57003CC531 /* Post.swift */,
 				B60D7D5D2225ED54003CC531 /* Comment.swift */,
+				B6FDE9BF22273E1B007283A5 /* SearchableRecord.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 			files = (
 				B60D7D3B2225E85A003CC531 /* AppDelegate.swift in Sources */,
 				B60D7D5E2225ED54003CC531 /* Comment.swift in Sources */,
+				B6FDE9C022273E1B007283A5 /* SearchableRecord.swift in Sources */,
 				B60D7D532225EA4D003CC531 /* PostListTableViewController.swift in Sources */,
 				B60D7D632225F302003CC531 /* PostTableViewCell.swift in Sources */,
 				B60D7D572225EABA003CC531 /* AddPostTableViewController.swift in Sources */,
