@@ -20,6 +20,7 @@
 		B60D7D602225F02A003CC531 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D7D5F2225F02A003CC531 /* PostController.swift */; };
 		B60D7D632225F302003CC531 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D7D622225F302003CC531 /* PostTableViewCell.swift */; };
 		B6FDE9C022273E1B007283A5 /* SearchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FDE9BF22273E1B007283A5 /* SearchableRecord.swift */; };
+		B6FDE9C222275CB2007283A5 /* PhotoSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FDE9C122275CB2007283A5 /* PhotoSelectorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		B60D7D5F2225F02A003CC531 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		B60D7D622225F302003CC531 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		B6FDE9BF22273E1B007283A5 /* SearchableRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableRecord.swift; sourceTree = "<group>"; };
+		B6FDE9C122275CB2007283A5 /* PhotoSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +116,9 @@
 			children = (
 				B60D7D522225EA4D003CC531 /* PostListTableViewController.swift */,
 				B60D7D542225EA86003CC531 /* PostDetailTableViewController.swift */,
-				B60D7D562225EABA003CC531 /* AddPostTableViewController.swift */,
 				B60D7D622225F302003CC531 /* PostTableViewCell.swift */,
+				B60D7D562225EABA003CC531 /* AddPostTableViewController.swift */,
+				B6FDE9C122275CB2007283A5 /* PhotoSelectorViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				B60D7D532225EA4D003CC531 /* PostListTableViewController.swift in Sources */,
 				B60D7D632225F302003CC531 /* PostTableViewCell.swift in Sources */,
 				B60D7D572225EABA003CC531 /* AddPostTableViewController.swift in Sources */,
+				B6FDE9C222275CB2007283A5 /* PhotoSelectorViewController.swift in Sources */,
 				B60D7D602225F02A003CC531 /* PostController.swift in Sources */,
 				B60D7D552225EA86003CC531 /* PostDetailTableViewController.swift in Sources */,
 				B60D7D5B2225EB57003CC531 /* Post.swift in Sources */,
