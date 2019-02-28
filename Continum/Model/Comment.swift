@@ -13,6 +13,7 @@ struct CommentConstants {
     static let typeKey = "Comment"
     static let textKey = "text"
     static let timestampKey = "timestamp"
+    static let postReferenceKey = "postReference"
 }
 
 class Comment {
@@ -20,6 +21,10 @@ class Comment {
     let timeStamp: Date
     let recordID: CKRecord.ID
     weak var post: Post?
+    var postReference: CKRecord.Reference? {
+        guard let post = post else { return nil }
+        return CKRecord.Reference(recordID: post.recordID, action: .deleteSelf)
+    }
     
     init(text: String, post: Post, timeStamp: Date = Date(), recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         self.timeStamp = timeStamp
@@ -28,12 +33,10 @@ class Comment {
         self.recordID = recordID
     }
     
-    init?(record: CKRecord) {
-        guard let text = record[CommentConstants.textKey] as? String,
-            let timeStamp = record[CommentConstants.timestampKey] as? Date else {return nil}
-        self.text = text
-        self.timeStamp = timeStamp
-        self.recordID = record.recordID
+    convenience init?(ckRecord: CKRecord, post: Post){
+        guard let text = ckRecord[CommentConstants.textKey] as? String,
+            let timeStamp = ckRecord[CommentConstants.timestampKey] as? Date else { return nil }
+        self.init(text: text, post: post, timeStamp: timeStamp, recordID: ckRecord.recordID)
     }
 }
 
@@ -49,5 +52,6 @@ extension CKRecord {
         
         self.setValue(comment.text, forKey: CommentConstants.textKey)
         self.setValue(comment.timeStamp, forKey: CommentConstants.timestampKey)
+        self.setValue(comment.postReference, forKey: CommentConstants.postReferenceKey)
     }
 }
