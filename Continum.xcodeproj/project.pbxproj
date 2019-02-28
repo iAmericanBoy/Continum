@@ -19,6 +19,7 @@
 		B60D7D5E2225ED54003CC531 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D7D5D2225ED54003CC531 /* Comment.swift */; };
 		B60D7D602225F02A003CC531 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D7D5F2225F02A003CC531 /* PostController.swift */; };
 		B60D7D632225F302003CC531 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D7D622225F302003CC531 /* PostTableViewCell.swift */; };
+		B6EE819322288A42009856D8 /* ViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EE819222288A42009856D8 /* ViewController+extension.swift */; };
 		B6FDE9C022273E1B007283A5 /* SearchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FDE9BF22273E1B007283A5 /* SearchableRecord.swift */; };
 		B6FDE9C222275CB2007283A5 /* PhotoSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FDE9C122275CB2007283A5 /* PhotoSelectorViewController.swift */; };
 /* End PBXBuildFile section */
@@ -39,6 +40,7 @@
 		B60D7D5D2225ED54003CC531 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		B60D7D5F2225F02A003CC531 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		B60D7D622225F302003CC531 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		B6EE819222288A42009856D8 /* ViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+extension.swift"; sourceTree = "<group>"; };
 		B6FDE9BF22273E1B007283A5 /* SearchableRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableRecord.swift; sourceTree = "<group>"; };
 		B6FDE9C122275CB2007283A5 /* PhotoSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 				B60D7D512225E8B2003CC531 /* Views */,
 				B60D7D592225EADE003CC531 /* Controller */,
 				B60D7D502225E8A8003CC531 /* Resources */,
+				B6EE819222288A42009856D8 /* ViewController+extension.swift */,
 			);
 			path = Continum;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				B6FDE9C222275CB2007283A5 /* PhotoSelectorViewController.swift in Sources */,
 				B60D7D602225F02A003CC531 /* PostController.swift in Sources */,
 				B60D7D552225EA86003CC531 /* PostDetailTableViewController.swift in Sources */,
+				B6EE819322288A42009856D8 /* ViewController+extension.swift in Sources */,
 				B60D7D5B2225EB57003CC531 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
