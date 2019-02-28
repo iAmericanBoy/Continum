@@ -45,5 +45,7 @@
 	<string>Uses Camera so you can post an image</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Uses PhotoLibrary so you can post a picture</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Uses PhotoLibrary so you can save a picture</string>
 </dict>
 </plist>

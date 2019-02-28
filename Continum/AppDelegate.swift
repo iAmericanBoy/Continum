@@ -34,15 +34,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             case .available:
                 completion(true)
             case .noAccount:
-                self.window?.rootViewController.presentSimpleAlertWith(title: "Sign into iCloud in Settings", message: "No account found")
+                self.window?.rootViewController?.presentSimpleAlertWith(title: "Sign into iCloud in Settings", message: "No account found")
                 completion(false)
             case .couldNotDetermine:
-                self.window?.tabBarController?.presentSimpleAlertWith(title: "Sign into iCloud in Settings", message: "There was an unknown error fetching your iCloud Account")
+                self.window?.rootViewController?.tabBarController?.presentSimpleAlertWith(title: "Sign into iCloud in Settings", message: "There was an unknown error fetching your iCloud Account")
                 completion(false)
             case .restricted:
-                self.window?.tabBarController?.presentSimpleAlertWith(title: "Sign into iCloud in Settings", message: "Your iCloud account is restricted")
+                self.window?.rootViewController?.tabBarController?.presentSimpleAlertWith(title: "Sign into iCloud in Settings", message: "Your iCloud account is restricted")
                 completion(false)
             }
         }
+    }
 }
 
