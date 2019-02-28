@@ -34,6 +34,7 @@ class PostDetailTableViewController: UITableViewController {
     }
     
     @IBAction func shareButtonTapped(_ sender: UIButton) {
+        sharePost()
     }
     
     @IBAction func followPosttapped(_ sender: UIButton) {
@@ -90,5 +91,11 @@ class PostDetailTableViewController: UITableViewController {
         commentAlert.addAction(cancelAction)
         commentAlert.addAction(confirmAction)
         self.present(commentAlert, animated: true, completion: nil)
+    }
+    
+    func sharePost() {
+        guard let caption = post?.caption, let photo = post?.photo else {return}
+        let shareSheet = UIActivityViewController(activityItems: [caption,photo], applicationActivities: nil)
+        self.present(shareSheet,animated: true)
     }
 }
