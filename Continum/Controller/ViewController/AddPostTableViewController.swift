@@ -49,6 +49,9 @@ class AddPostTableViewController: UITableViewController {
 }
 extension AddPostTableViewController: PhotoSelectorViewControllerDelegate {
     func photoSelectorViewControllerSelected(image: UIImage?) {
+        guard let image = image else {return}
         self.postImage = image
+
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
     }
 }
