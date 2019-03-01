@@ -8,6 +8,7 @@
 
 import UIKit
 import CloudKit
+import UserNotifications
 
 class PostController {
     //MARK: -Singleton
@@ -19,7 +20,14 @@ class PostController {
     //MARK: - Properties
     let publicDB = CKContainer.default().publicCloudDatabase
     
-    //MARK: -CRUD
+    //MARK: - init
+    init() {
+        subscribeToNewPosts { (_, _) in
+        }
+    }
+    
+    //MARK: - CRUD
+    //C
     func createPostWith(image: UIImage, caption: String, completion:@escaping(Post?) -> Void) {
         let newPost = Post(caption: caption, photo: image)
         guard let record = CKRecord(post: newPost) else {completion(nil); return}
@@ -36,7 +44,7 @@ class PostController {
             completion(newPostFormCK)
         }
     }
-    
+    //U
     func addCommentTo(post: Post, withText text: String, completion: @escaping(Comment?) -> Void) {
         
         let newComment = Comment(text: text, post: post)
@@ -70,7 +78,7 @@ class PostController {
         
         publicDB.add(operation)
     }
-    
+    //R
     func fetchPosts(completion: @escaping ([Post]) -> Void) {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: PostConstants.typeKey, predicate: predicate)
@@ -89,6 +97,7 @@ class PostController {
         }
     }
     
+    //R
     func fetchComments(fromPost post: Post, completion: @escaping ([Comment]) -> Void) {
         
         let postRefence = post.recordID
@@ -110,6 +119,27 @@ class PostController {
             
             post.comments += comments
             completion(comments)
+        }
+    }
+    
+    //MARK: - Subscribtions
+    func subscribeToNewPosts(completion: @escaping (Bool,Error?) -> Void) {
+        let predicate = NSPredicate(value: true)
+        let subsciption = CKQuerySubscription(recordType: PostConstants.typeKey, predicate: predicate, subscriptionID: PostConstants.subscriptionKey, options: .firesOnRecordCreation)
+        
+        let notificationInfo = CKSubscription.NotificationInfo()
+        notificationInfo.title = "Hey"
+        notificationInfo.alertBody = "There was a new Post posted to Continum"
+        
+        subsciption.notificationInfo = notificationInfo
+        
+        publicDB.save(subsciption) { (subscription, error) in
+            if let error = error {
+                print("There was an error saving the message subscription: \(error.localizedDescription)")
+                completion(false,error)
+                return
+            }
+            completion(true,error)
         }
     }
 }

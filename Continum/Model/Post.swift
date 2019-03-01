@@ -17,6 +17,7 @@ struct PostConstants {
     static let commentsKey = "comments"
     static let commentCountKey = "commentCount"
     static let photoKey = "photo"
+    static let subscriptionKey = "subscribeToNewPosts"
 }
 
 class Post {
