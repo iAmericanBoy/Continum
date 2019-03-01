@@ -20,6 +20,17 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Uses Camera so you can post an image</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Uses PhotoLibrary so you can save a picture</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Uses PhotoLibrary so you can post a picture</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -41,11 +52,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>Uses Camera so you can post an image</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Uses PhotoLibrary so you can post a picture</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Uses PhotoLibrary so you can save a picture</string>
 </dict>
 </plist>

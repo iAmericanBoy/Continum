@@ -8,6 +8,7 @@
 
 import UIKit
 import CloudKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         isCKAccountAvailable { (isAvailable) in
             print(isAvailable ? "Account is available" : "Account is not available")            
         }
+        UNUserNotificationCenter.current().requestAuthorization(options: .provisional) { (isSuccess, error) in
+            if let error = error {
+                print("An error requesting notificationAuthorization has occured: \(error), \(error.localizedDescription)")
+            }
+            
+            if isSuccess {
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            }
+        }
+        
         return true
     }
     
