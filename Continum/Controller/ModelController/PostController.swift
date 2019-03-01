@@ -147,10 +147,12 @@ class PostController {
         checkForCommentSubscribtion(forPost: post) { (subscribtionExists, error) in
             switch subscribtionExists {
             case true:
-                completion(true,error)
+                self.removeCommentSubscribtion(forPost: post, completion: { (subsribtionWasDeleted, error) in
+                    completion(false,error)
+                })
             case false:
                 self.subscribeToNewPosts(completion: { (subscribtionWasSet, error) in
-                    completion(subscribtionWasSet,error)
+                    completion(true,error)
                 })
             }
         }

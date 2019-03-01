@@ -14,6 +14,7 @@ class PostDetailTableViewController: UITableViewController {
     //MARK: - Outlets
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var followButton: UIButton!
     
     //MARK: - Properties
     var post: Post? {
@@ -38,6 +39,7 @@ class PostDetailTableViewController: UITableViewController {
     }
     
     @IBAction func followPosttapped(_ sender: UIButton) {
+        followPost()
     }
     
     // MARK: - Table view data source
@@ -58,17 +60,24 @@ class PostDetailTableViewController: UITableViewController {
     func updateViews() {
         guard let post = post else {return}
         PostController.shared.fetchComments(fromPost: post) { (_) in
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.postImageView.image = post.photo
-                self.captionLabel.text = post.caption
-            }
+            PostController.shared.checkForCommentSubscribtion(forPost: post, completion: { (subscribed, _) in
+                DispatchQueue.main.async {
+                    
+                    switch subscribed {
+                    case true:
+                        self.followButton.setTitle("Unfollow Post", for: .normal)
+                    case false:
+                        self.followButton.setTitle("Follow Post", for: .normal)
+                    }
+                    
+                    self.tableView.reloadData()
+                    self.postImageView.image = post.photo
+                    self.captionLabel.text = post.caption
+                }
+            })
         }
     }
     
-    func requestAllComments(forPost post: Post, completion: @escaping (Bool) -> Void) {
-
-    }
     func getNewCommentAlert() {
         var commentTextField: UITextField?
         
@@ -106,5 +115,19 @@ class PostDetailTableViewController: UITableViewController {
         guard let caption = post?.caption, let photo = post?.photo else {return}
         let shareSheet = UIActivityViewController(activityItems: [caption,photo], applicationActivities: nil)
         self.present(shareSheet,animated: true)
+    }
+    
+    func followPost() {
+        guard  let post = post else {return}
+        PostController.shared.toggleSubscriptionTo(commentsForPost: post) { (subscribtionIsSet, _) in
+            DispatchQueue.main.async {
+                switch subscribtionIsSet {
+                case false:
+                    self.followButton.setTitle("Unfollow Post", for: .normal)
+                case true:
+                    self.followButton.setTitle("Follow Post", for: .normal)
+                }
+            }
+        }
     }
 }
