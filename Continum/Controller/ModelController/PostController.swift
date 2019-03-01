@@ -38,19 +38,37 @@ class PostController {
     }
     
     func addCommentTo(post: Post, withText text: String, completion: @escaping(Comment?) -> Void) {
-        let newComment = Comment(text: text, post: post)
-        guard let record = CKRecord(comment: newComment) else {completion(nil); return}
         
-        publicDB.save(record) { (record, error) in
+        let newComment = Comment(text: text, post: post)
+        guard let commentRecord = CKRecord(comment: newComment) else {completion(nil); return}
+        
+        post.commentCount += 1
+        guard let postRecord = CKRecord(post: post) else {completion(nil); return}
+        
+        let operation = CKModifyRecordsOperation(recordsToSave: [postRecord,commentRecord], recordIDsToDelete: nil)
+        operation.savePolicy = .changedKeys
+        
+        operation.modifyRecordsCompletionBlock = { (savedRecords,_,error) in
             if let error = error {
                 print("An error saving comment record has occurd: \(error), \(error.localizedDescription)")
                 completion(nil)
                 return
             }
-            guard let record = record, let newCommentFormCK = Comment(ckRecord: record, post: post) else {completion(nil); return}
-            post.comments.append(newCommentFormCK)
-            completion(newCommentFormCK)
+            
+            guard let savedRecords = savedRecords else {completion(nil); return}
+            
+            if let postFromCK = Post(record: savedRecords[0]) {
+                guard let newCommentFormCK = Comment(ckRecord: savedRecords[1], post: postFromCK) else {completion(nil); return}
+                post.comments.append(newCommentFormCK)
+                completion(newCommentFormCK)
+            } else if let postFromCK = Post(record: savedRecords[1]) {
+                guard let newCommentFormCK = Comment(ckRecord: savedRecords[0], post: postFromCK) else {completion(nil); return}
+                post.comments.append(newCommentFormCK)
+                completion(newCommentFormCK)
+            }
         }
+        
+        publicDB.add(operation)
     }
     
     func fetchPosts(completion: @escaping ([Post]) -> Void) {
@@ -90,7 +108,7 @@ class PostController {
             guard let records = records else {completion([]); return}
             let comments = records.compactMap({ Comment(ckRecord: $0, post: post) })
             
-            post.comments = comments
+            post.comments += comments
             completion(comments)
         }
     }

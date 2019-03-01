@@ -15,6 +15,7 @@ struct PostConstants {
     static let captionKey = "caption"
     static let timestampKey = "timestamp"
     static let commentsKey = "comments"
+    static let commentCountKey = "commentCount"
     static let photoKey = "photo"
 }
 
@@ -23,6 +24,7 @@ class Post {
     let timeStamp: Date
     let caption: String
     var comments: [Comment]
+    var commentCount: Int
     let recordID: CKRecord.ID
     
     var imageAsset: CKAsset? {
@@ -54,18 +56,21 @@ class Post {
         self.comments = comments
         self.timeStamp = timeStamp
         self.recordID = recordID
+        self.commentCount = comments.count
         self.photo = photo
     }
     
     init?(record: CKRecord) {
         guard let caption = record[PostConstants.captionKey] as? String,
             let timestamp = record[PostConstants.timestampKey] as? Date,
-            let imageAsset = record[PostConstants.photoKey] as? CKAsset else {return nil}
+            let imageAsset = record[PostConstants.photoKey] as? CKAsset,
+            let commentCount = record[PostConstants.commentCountKey] as? Int else {return nil}
         
         self.caption = caption
         self.comments = []
         self.recordID = record.recordID
         self.timeStamp = timestamp
+        self.commentCount = commentCount
         
         do {
             try self.photoData = Data(contentsOf: imageAsset.fileURL)
@@ -88,5 +93,7 @@ extension CKRecord {
 
         self.setValue(post.caption, forKey: PostConstants.captionKey)
         self.setValue(post.timeStamp, forKey: PostConstants.timestampKey)
-        self.setValue(post.imageAsset, forKey: PostConstants.photoKey)    }
+        self.setValue(post.imageAsset, forKey: PostConstants.photoKey)
+        self.setValue(post.commentCount, forKey: PostConstants.commentCountKey)
+    }
 }

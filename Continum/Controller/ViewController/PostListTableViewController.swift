@@ -24,6 +24,8 @@ class PostListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
+        requestFullSync { (isSuccess) in
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +54,14 @@ class PostListTableViewController: UITableViewController {
             guard let index = tableView.indexPathForSelectedRow else {return}
             if let destinationVC = segue.destination as? PostDetailTableViewController {
                 destinationVC.post = PostController.shared.posts[index.row]
+            }
+        }
+    }
+    //MARK: - Private Functions
+    func requestFullSync(completion: @escaping (Bool) -> Void) {
+        PostController.shared.fetchPosts { (_) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
         }
     }

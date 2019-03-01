@@ -57,9 +57,17 @@ class PostDetailTableViewController: UITableViewController {
     //MARK: - Private Functions
     func updateViews() {
         guard let post = post else {return}
-        self.postImageView.image = post.photo
-        self.captionLabel.text = post.caption
-        tableView.reloadData()
+        PostController.shared.fetchComments(fromPost: post) { (_) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.postImageView.image = post.photo
+                self.captionLabel.text = post.caption
+            }
+        }
+    }
+    
+    func requestAllComments(forPost post: Post, completion: @escaping (Bool) -> Void) {
+
     }
     func getNewCommentAlert() {
         var commentTextField: UITextField?
@@ -71,9 +79,10 @@ class PostDetailTableViewController: UITableViewController {
             guard let post = self?.post else {return}
             if let comment = commentTextField?.text {
                 PostController.shared.addCommentTo(post: post, withText: comment, completion: { comment in
-                    
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
                 })
-                self?.tableView.reloadData()
             }
         }
         commentAlert.addTextField { textField in
