@@ -14,6 +14,7 @@ struct CommentConstants {
     static let textKey = "text"
     static let timestampKey = "timestamp"
     static let postReferenceKey = "postReference"
+    static let subscriptionKey = "subscribeToNewComments"
 }
 
 class Comment {

@@ -135,7 +135,62 @@ class PostController {
         
         publicDB.save(subsciption) { (subscription, error) in
             if let error = error {
-                print("There was an error saving the message subscription: \(error.localizedDescription)")
+                print("There was an error saving the post subscription: \(error.localizedDescription)")
+                completion(false,error)
+                return
+            }
+            completion(true,error)
+        }
+    }
+    
+    func toggleSubscriptionTo(commentsForPost post: Post, completion: @escaping (Bool,Error?) -> Void) {
+        checkForCommentSubscribtion(forPost: post) { (subscribtionExists, error) in
+            switch subscribtionExists {
+            case true:
+                completion(true,error)
+            case false:
+                self.subscribeToNewPosts(completion: { (subscribtionWasSet, error) in
+                    completion(subscribtionWasSet,error)
+                })
+            }
+        }
+    }
+    
+    func subscribeToComments(forPost post: Post, completion: @escaping (Bool,Error?) -> Void) {
+        let predicate = NSPredicate(format: "%K == %@", argumentArray: [CommentConstants.postReferenceKey,post.recordID])
+        let subsciption = CKQuerySubscription(recordType: post.recordID.recordName, predicate: predicate, subscriptionID: CommentConstants.subscriptionKey, options: .firesOnRecordCreation)
+        
+        let notificationInfo = CKSubscription.NotificationInfo()
+        notificationInfo.title = "Hey"
+        notificationInfo.alertBody = "There was a new Comment posted."
+        
+        subsciption.notificationInfo = notificationInfo
+        
+        publicDB.save(subsciption) { (subscription, error) in
+            if let error = error {
+                print("There was an error saving the comment subscription: \(error.localizedDescription)")
+                completion(false,error)
+                return
+            }
+            completion(true,error)
+        }
+    }
+    
+    func removeCommentSubscribtion(forPost post: Post, completion: @escaping (Bool,Error?) -> Void) {
+        publicDB.delete(withSubscriptionID: post.recordID.recordName) { (_, error) in
+            if let error = error {
+                print("There was an error deleting the comment subscription: \(error.localizedDescription)")
+                completion(false,error)
+                return
+            }
+            completion(true,error)
+        }
+    }
+    
+    func checkForCommentSubscribtion(forPost post: Post, completion: @escaping (Bool,Error?) -> Void) {
+        publicDB.fetch(withSubscriptionID: post.recordID.recordName) { (subscribtion, error) in
+            if let error = error {
+                print("There was an error checking for the comment subscription: \(error.localizedDescription)")
                 completion(false,error)
                 return
             }
